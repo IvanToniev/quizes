@@ -1,0 +1,1 @@
+A web application for quizes. Written in Ruby on Rails.
