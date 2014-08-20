@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'login/index'
+
   resources :answers
+
+  resources :question_quiz_relations
 
   resources :quizzes
 

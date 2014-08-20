@@ -1,0 +1,2 @@
+module QuestionQuizRelationsHelper
+end

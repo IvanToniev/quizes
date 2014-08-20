@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820080729) do
+ActiveRecord::Schema.define(version: 20140820111247) do
 
   create_table "answers", force: true do |t|
-    t.integer  "Quiz_id"
-    t.integer  "User_id"
-    t.integer  "Question_id"
+    t.integer  "quiz_id"
+    t.integer  "user_id"
+    t.integer  "question_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.boolean  "success"
@@ -24,9 +24,20 @@ ActiveRecord::Schema.define(version: 20140820080729) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["Question_id"], name: "index_answers_on_Question_id"
-  add_index "answers", ["Quiz_id"], name: "index_answers_on_Quiz_id"
-  add_index "answers", ["User_id"], name: "index_answers_on_User_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["quiz_id"], name: "index_answers_on_quiz_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
+  create_table "question_quiz_relations", force: true do |t|
+    t.integer  "question_id"
+    t.integer  "quiz_id"
+    t.integer  "show_order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "question_quiz_relations", ["question_id"], name: "index_question_quiz_relations_on_question_id"
+  add_index "question_quiz_relations", ["quiz_id"], name: "index_question_quiz_relations_on_quiz_id"
 
   create_table "questions", force: true do |t|
     t.string   "title"
@@ -38,21 +49,21 @@ ActiveRecord::Schema.define(version: 20140820080729) do
   end
 
   create_table "quizzes", force: true do |t|
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.string   "title"
     t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "quizzes", ["User_id"], name: "index_quizzes_on_User_id"
+  add_index "quizzes", ["user_id"], name: "index_quizzes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password"
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "is_admin"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,6 @@
 h1 Listing quizzes
 
-table
+table.table
   thead
     tr
       th User
@@ -13,7 +13,7 @@ table
   tbody
     - @quizzes.each do |quiz|
       tr
-        td = quiz.User
+        td = quiz.user.email
         td = quiz.title
         td = quiz.date
         td = link_to 'Show', quiz

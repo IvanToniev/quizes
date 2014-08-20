@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  belongs_to :Quiz
-  belongs_to :User
-  belongs_to :Question
+  belongs_to :quiz
+  belongs_to :user
+  belongs_to :question
 end

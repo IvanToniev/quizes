@@ -1,13 +1,13 @@
 h1 Listing users
 
-table class="table"
+table
   thead
     tr
       th Email
       th Password
       th First name
       th Last name
-      th Is admin
+      th Admin
       th
       th
       th
@@ -19,7 +19,7 @@ table class="table"
         td = user.password
         td = user.first_name
         td = user.last_name
-        td = user.is_admin
+        td = user.admin
         td = link_to 'Show', user
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
