@@ -5,16 +5,16 @@ div.bs-docs-section.register_form
   div.row
     = simple_form_for :user, url: users_path, defaults: {input_html: {class: 'form-horizontal'}} do |f|
       div.col-lg-10.form-group
-        = f.input :email, {class: 'form-control'}
+        = f.input :email
       div.col-lg-10.form-group
-        = f.input :password, {class: 'form-control'}
+        = f.input :password
       div.col-lg-10.form-group
-        = f.input :confirm_password, {class: 'form-control'}
+        = f.input :confirm_password
       div.col-lg-10.form-group
-        = f.input :first_name, {class: 'form-control'}
+        = f.input :first_name
       div.col-lg-10.form-group
-        = f.input :last_name, {class: 'form-control'}
+        = f.input :last_name
       div.col-lg-10.form-group
-        = f.input :admin, {class: 'form-control', placeholder: 'optional'}
+        = f.input :admin
       div.col-lg-10.login_button
         = f.button :submit, {class: 'btn btn-primary btn-large', value: 'Register'}

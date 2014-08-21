@@ -1,21 +1,12 @@
-= form_for @question do |f|
-  - if @question.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
-      ul
-        - @question.errors.full_messages.each do |message|
-          li = message
+= form.input :title
+= form.input :description
+= form.input :content
+= form.input :answer
+= form.button :submit, {class: 'btn btn-primary btn-large'}
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :answer
-    = f.text_area :answer
-  .actions = f.submit 'Save'
+- if @question.errors.any?
+  #error_explanation
+    h2 = "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
+    ul
+      - @question.errors.full_messages.each do |message|
+        li = message

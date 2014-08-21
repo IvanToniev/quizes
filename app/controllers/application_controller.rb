@@ -4,11 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    User.where(is_admin: false).last
+    User.where(admin: true).first
   end
 
-  def current_user
-    User.where(is_admin: false).last
+  def user_signed_in?
   end
 
 end

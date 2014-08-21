@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'login/index'
+  get 'quizzes/:id/add' => 'quizzes#add_question'
+  get '/register' => 'users#new'
 
   resources :answers
 

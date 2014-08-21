@@ -1,5 +1,5 @@
-h1 New question
-
-== render 'form'
-
-= link_to 'Back', questions_path
+div.bs-docs-section.question_form
+  div.form_content
+    h1 Question
+    = simple_form_for @question do |form|
+      == render 'form', form: form

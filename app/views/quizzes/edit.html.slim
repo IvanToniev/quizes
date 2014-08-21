@@ -1,6 +1,7 @@
 h1 Editing quiz
 
-== render 'form'
+= simple_form_for @quiz do |form|
+  = render 'form', form: form
 
 = link_to 'Show', @quiz
 '|

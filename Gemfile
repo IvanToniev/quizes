@@ -31,4 +31,4 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'rspec'
 gem 'cucumber'
-
+gem 'ranked-model'
