@@ -1,5 +1,5 @@
 class Admin::QuizzesController < Admin::AdminApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :add_questions, :do_add_questions]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -18,9 +18,25 @@ class Admin::QuizzesController < Admin::AdminApplicationController
     @questions = Question.all
   end
 
-  def add_question
+  def add_questions
     @questions = Question.all
   end
+
+  def do_add_questions
+    if params[:ids].nil?
+      @quiz.questions.clear
+    else
+      @quiz.questions = []
+      params[:ids].each do |question_id|
+        question = Question.find(question_id)
+        @quiz.questions << question
+        flash[:notice] = 'done' #TODO add alert area.
+      end
+    end
+
+    redirect_to [:add_questions, :admin, @quiz]
+  end
+
 
   # GET /quizzes/1/edit
   def edit

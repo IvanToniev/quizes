@@ -1,0 +1,9 @@
+= form_tag([:do_add_questions, :admin, @quiz], method: :patch) do |form|
+  table.table
+    - @questions.each do |question|
+      tr
+        td
+          = question.title
+          = check_box_tag 'ids[]', question.id, @quiz.questions.include?(question)
+
+  = submit_tag

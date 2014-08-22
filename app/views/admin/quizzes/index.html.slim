@@ -5,6 +5,7 @@ table.table
     tr
       th User
       th Title
+      th Actions
       th
       th
       th
@@ -17,6 +18,7 @@ table.table
         td = link_to 'Show', [:admin, quiz]
         td = link_to 'Edit', [:edit, :admin, quiz]
         td = link_to 'Destroy', [:admin, quiz], data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Add Questions', [:add_questions, :admin, quiz]
 
 br
 

@@ -1,14 +1,47 @@
 Rails.application.routes.draw do
-  get '/admin/quizzes/:id/add' => 'quizzes#add_question'
-  get '/admin/register' => 'admin/users#new'
+  # get 'user/index'
+  # get 'user/quiz_welcome'
+  # get 'user/quiz'
+  # get 'user/quiz_goodbye'
+  # get 'user/quiz_statistics'
+
+
+  # get '/admin/quizzes/:id/add' => 'quizzes#add_question'
+  # get '/admin/register' => 'admin/users#new'
+
+  #resource :quiz, only => [:show]
 
   namespace :admin do
     resources :answers
-    resources :question_quiz_relations
-    resources :quizzes
+
+    # resources :question_quiz_relations
+
+    resources :quizzes do
+      collection do
+      end
+
+      member do
+        get :add_questions
+        patch :do_add_questions
+
+        get :show_questions
+
+        patch :move_up
+        patch :move_down
+      end
+    end
     resources :questions
     resources :users
   end
+
+  # resources :user, :only => [:index] do
+  #   member do
+  #     get :show_quizzes
+  #     get :quiz_welcome
+  #     get :quiz_goodbye
+  #     get :quiz_statistics
+  #   end
+  # end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

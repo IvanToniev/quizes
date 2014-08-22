@@ -11,5 +11,8 @@ admin = User.create(email: 'admin@example.com', password: '112233', first_name: 
 normal_user = User.create(email: 'pesho@exmaple.com', password: '112233', first_name: 'Pesho', last_name: 'Peshunov', admin: false)
 quiz = Quiz.create(user_id: admin.id, title: 'ruby quiz', date: Time.now)
 quiz.questions << [
-  Question.create(title: 'Conditions', description: 'How do you check a condition in ruby?', content: 'if, while, what', answer: 'if')
+  Question.create(title: 'Conditions', description: 'How do you check a condition in ruby?', content: 'if, while, what', answer: 'if'),
+  Question.create(title: 'RoR', description: 'How do you start a server?', content: 'rails s, start_server, server', answer: 'rails s'),
+  Question.create(title: 'Which country has most population?', description: '', content: 'China, India, USA', answer: 'China'),
+  Question.create(title: 'What is the answer of life?', description: 'Is it a number?', content: 'love, hate, 42', answer: '42')
 ]
