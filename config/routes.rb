@@ -34,14 +34,14 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  # resources :user, :only => [:index] do
-  #   member do
-  #     get :show_quizzes
-  #     get :quiz_welcome
-  #     get :quiz_goodbye
-  #     get :quiz_statistics
-  #   end
-  # end
+  resources :user, :only => [:index] do
+    member do
+      get :show_quizzes
+      get :quiz_welcome
+      get :quiz_goodbye
+      get :quiz_statistics
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

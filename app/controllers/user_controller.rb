@@ -6,6 +6,7 @@ class UserController < ApplicationController
 
   def quiz_welcome
     @user = current_user
+    @quiz = Quiz.find(params[:id])
   end
 
   def quiz
