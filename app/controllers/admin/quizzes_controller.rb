@@ -1,4 +1,4 @@
-class Admin::QuizzesController < ApplicationController
+class Admin::QuizzesController < Admin::AdminApplicationController
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
 
   # GET /quizzes

@@ -32,3 +32,4 @@ gem 'simple_form'
 gem 'rspec'
 gem 'cucumber'
 gem 'ranked-model'
+gem 'better_errors', group: :development
