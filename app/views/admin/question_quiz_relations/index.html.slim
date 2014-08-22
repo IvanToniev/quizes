@@ -1,0 +1,25 @@
+_adminh1 Listing question_quiz_relations
+
+table
+  thead
+    tr
+      th Question
+      th Quiz
+      th Show order
+      th
+      th
+      th
+
+  tbody
+    - @question_quiz_relations.each do |question_quiz_relation|
+      tr
+        td = question_quiz_relation.question
+        td = question_quiz_relation.quiz
+        td = question_quiz_relation.show_order
+        td = link_to 'Show', [:admin, question_quiz_relation]
+        td = link_to 'Edit', edit_admin_question_quiz_relation_path(question_quiz_relation)
+        td = link_to 'Destroy', [:admin, question_quiz_relation], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Question quiz relation', new_question_quiz_relation_path

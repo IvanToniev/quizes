@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong User:
+  = @quiz.user.email
+p
+  strong Title:
+  = @quiz.title
+
+= link_to 'Edit', edit_admin_quiz_path(@quiz)
+'|
+= link_to 'Back', admin_quizzes_path

@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Question:
+  = @question_quiz_relation.question
+p
+  strong Quiz:
+  = @question_quiz_relation.quiz
+p
+  strong Show order:
+  = @question_quiz_relation.show_order
+
+= link_to 'Edit', edit_admin_question_quiz_relation_path(@question_quiz_relation)
+'|
+= link_to 'Back', admin_question_quiz_relations_path

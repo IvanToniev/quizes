@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Quiz:
+  = @answer.quiz
+p
+  strong User:
+  = @answer.user
+p
+  strong Question:
+  = @answer.question
+p
+  strong Start time:
+  = @answer.start_time
+p
+  strong End time:
+  = @answer.end_time
+p
+  strong Success:
+  = @answer.success
+
+= link_to 'Edit', edit_admin_answer_path(@answer)
+'|
+= link_to 'Back', admin_answers_path

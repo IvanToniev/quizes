@@ -1,0 +1,8 @@
+h1 Editing question
+= simple_form_for [:admin, @question] do |form|
+  == render 'form', form: form
+
+= link_to 'Show', [:admin, @question]
+'|
+= link_to 'Back', admin_questions_path
+

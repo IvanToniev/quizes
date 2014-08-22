@@ -1,0 +1,27 @@
+h1 Listing questions
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+      th Content
+      th Answer
+      th
+      th
+      th
+
+  tbody
+    - @questions.each do |question|
+      tr
+        td = question.title
+        td = question.description
+        td = question.content
+        td = question.answer
+        td = link_to 'Show', [:admin, question]
+        td = link_to 'Edit', edit_admin_question_path(question)
+        td = link_to 'Destroy', [:admin, question], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Question', new_admin_question_path

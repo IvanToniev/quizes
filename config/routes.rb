@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  get 'quizzes/:id/add' => 'quizzes#add_question'
-  get '/register' => 'users#new'
+  get '/admin/quizzes/:id/add' => 'quizzes#add_question'
+  get '/admin/register' => 'admin/users#new'
 
-  resources :answers
+  namespace :admin do
+    resources :answers
+    resources :question_quiz_relations
+    resources :quizzes
+    resources :questions
+    resources :users
+  end
 
-  resources :question_quiz_relations
-
-  resources :quizzes
-
-  resources :questions
-
-  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

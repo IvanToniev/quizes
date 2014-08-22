@@ -1,0 +1,5 @@
+div.bs-docs-section.register_form
+  h1 Register
+  = simple_form_for [:admin, @user] do |form|
+    == render 'form', form: form
+

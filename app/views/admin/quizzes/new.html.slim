@@ -1,0 +1,6 @@
+div.bs-docs-section.question_form
+  h1 New Quiz
+  = simple_form_for [:admin, @quiz] do |form|
+    == render 'form', form: form
+    div
+      = form.button :submit, {class: 'btn btn-primary btn-large'}

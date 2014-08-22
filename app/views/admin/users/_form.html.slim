@@ -1,0 +1,23 @@
+- if @user.errors.any?
+  #error_explanation
+    h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+    ul
+      - @user.errors.full_messages.each do |message|
+        li = message
+.field
+  = form.input :email
+.field
+  = form.input :password
+.field
+  = form.input :confirm_password
+.field
+  = form.input :first_name
+.field
+  = form.input :last_name
+.field
+  div class="control-group"
+    label class='password optional control-label' for='user_admin' Admin
+    div.control
+      = form.text_field :admin, {placeholder: 'Admin', id: 'user_admin'}
+.field
+  = form.button :submit, {class: 'btn btn-primary btn-large', value: 'Register'}
