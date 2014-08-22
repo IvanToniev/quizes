@@ -1,4 +1,6 @@
-div Welcome to the test:
-br
-= @quiz.title
+div.quiz_welcome
+  div Welcome to the quiz:
+  br
+  = @quiz.title
+  = link_to 'Begin', quiz_user_path(@quiz), {class: 'btn btn-large btn-primary begin_quiz'}
 

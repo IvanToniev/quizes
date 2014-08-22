@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   # get '/admin/quizzes/:id/add' => 'quizzes#add_question'
-  # get '/admin/register' => 'admin/users#new'
+  get '/admin/register' => 'admin/users#new'
 
   #resource :quiz, only => [:show]
 
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     member do
       get :show_quizzes
       get :quiz_welcome
+      get :quiz
       get :quiz_goodbye
       get :quiz_statistics
     end

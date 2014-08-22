@@ -4,6 +4,8 @@ nav.navbar.navbar-default role='navigation'
       ul.nav.navbar-nav
         li.active
           = link_to 'Quizzer', admin_quizzes_path
+        li
+          = link_to 'User', user_index_path
         li.dropdown
           = link_to raw('Admin<span class="caret"></span>'), '#', {class: 'dropdown-toggle', :data => {toggle: 'dropdown'}}
           ul.dropdown-menu role='menu'
@@ -13,3 +15,5 @@ nav.navbar.navbar-default role='navigation'
               = link_to 'Questions', admin_questions_path
             li
               = link_to 'Quizzes', admin_quizzes_path
+            li
+              = link_to 'Register', admin_register_path
