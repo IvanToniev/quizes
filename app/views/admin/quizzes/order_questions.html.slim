@@ -1,0 +1,21 @@
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th Title
+      th Description
+      th &nbsp;
+
+  tbody
+    - @question_quiz_relations.each do |question_quiz_relation|
+      - question = question_quiz_relation.question
+      tr
+        td= question.title
+        td= question.description
+        td
+          = link_to 'show', [:admin, question]
+          '|
+          = link_to 'edit', edit_admin_question_path(question)
+          '|
+          = link_to 'Up', move_up_admin_quiz_path(question_id: question), method: :patch
+          '|
+          = link_to 'Down', move_down_admin_quiz_path(question_id: question), method: :patch

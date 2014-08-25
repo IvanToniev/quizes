@@ -1,10 +1,12 @@
-h1 Editing quiz
+div.question_form
+  h1 Editing quiz
 
-= simple_form_for [:admin, @quiz] do |form|
-  = render 'form', form: form
-  div
-    = form.button :submit, {class: 'btn btn-primary btn-large'}
+  = simple_form_for [:admin, @quiz] do |form|
+    = render 'form', form: form
+    div
+      = form.button :submit, {class: 'btn btn-primary btn-large'}
 
-= link_to 'Show', [:admin, @quiz]
-'|
-= link_to 'Back', [:admin, :quizzes]
+div.show_page_links
+  = link_to 'Show', [:admin, @quiz]
+  span
+  = link_to 'Back', [:admin, :quizzes]

@@ -24,8 +24,11 @@ Rails.application.routes.draw do
         get :add_questions
         patch :do_add_questions
 
-        get :show_questions
+        get :order_questions
+        patch :order_questions
 
+        patch :move_to_top
+        patch :move_to_bottom
         patch :move_up
         patch :move_down
       end

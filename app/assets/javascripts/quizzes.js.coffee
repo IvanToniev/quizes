@@ -1,8 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $('.add-question').on 'click', (e) ->
-    question_row = $(this).parent().parent()
-    $('.quiz_questions').append($(question_row))
-    $(this).parent().parent().remove()
+  $('.add_questions_table tr td').on 'click', (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+
+    input = $(this).children().children('input[type=checkbox]')
+    if input.is(':checked')
+      input.removeAttr('checked')
+    else
+      input.prop('checked', 'true')

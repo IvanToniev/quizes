@@ -1,5 +1,7 @@
 class Admin::QuizzesController < Admin::AdminApplicationController
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :add_questions, :do_add_questions]
+  # TODO
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy,
+                                  :add_questions, :do_add_questions, :order_questions, :move_up, :move_down]
 
   # GET /quizzes
   # GET /quizzes.json
@@ -30,11 +32,40 @@ class Admin::QuizzesController < Admin::AdminApplicationController
       params[:ids].each do |question_id|
         question = Question.find(question_id)
         @quiz.questions << question
-        flash[:notice] = 'done' #TODO add alert area.
+        flash[:notice] = 'done'
       end
     end
 
     redirect_to [:add_questions, :admin, @quiz]
+  end
+
+  def order_questions
+    # # !!!!!
+    # QuestionQuizRelation.where(quiz_id: @quiz.id).order('show_order desc').each do |relation|
+    #   @questions << Question.find(relation.question_id)
+    # end
+
+    @question_quiz_relations = @quiz.question_quiz_relations.includes(:question).order('show_order desc')
+  end
+
+  def move_up
+    question_quiz_relation = QuestionQuizRelation.find_by(
+      quiz: @quiz,
+      question_id: params[:question_id]
+      )
+    question_quiz_relation.update_attribute(:show_order, :up)
+
+    redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
+  end
+
+  def move_down
+    question_quiz_relation = QuestionQuizRelation.find_by(
+      quiz: @quiz,
+      question_id: params[:question_id]
+      )
+    question_quiz_relation.update_attribute(:show_order, :down)
+
+    redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
 
 
