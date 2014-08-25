@@ -1,14 +1,11 @@
-h1 Listing quizzes
+h1 Quizzes
 
-table.table
+table.table.table-hover.table-bordered
   thead
     tr
       th User
       th Title
-      th Actions
-      th
-      th
-      th
+      th colspan='4' Actions
 
   tbody
     - @quizzes.each do |quiz|
@@ -22,4 +19,4 @@ table.table
 
 br
 
-= link_to 'New Quiz', new_admin_quiz_path
+= link_to 'New Quiz', new_admin_quiz_path, :class => 'btn btn-sml btn-primary'

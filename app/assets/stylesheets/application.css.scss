@@ -45,3 +45,54 @@
 .question_form {
   width: 500px;
 }
+
+table.table {
+  font-size: 13.5px;
+  font-family: Mono;
+  border: none;
+
+  thead {
+    background-color: #efefef;
+  }
+  th, td {
+    max-width: 250px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.add_questions_table {
+  width: 30%;
+  max-width: 50%;
+
+  input[type='checkbox'] {
+    margin: 10px 10px 0 10px;
+  }
+}
+
+.btn {
+  margin-left: 10px;
+}
+
+p, hr {
+  font-size: 13.5px;
+  font-family: Mono;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 30%;
+}
+
+.show_page_links {
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 auto;
+  span {
+    display: inline-block;
+    width: 10px;
+  }
+}
+
+.user_quizzes_table {
+  max-width: 40%;
+}

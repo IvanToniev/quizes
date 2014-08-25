@@ -1,9 +1,10 @@
 = form_tag([:do_add_questions, :admin, @quiz], method: :patch) do |form|
-  table.table
+  table.table.add_questions_table
     - @questions.each do |question|
       tr
         td
-          = question.title
-          = check_box_tag 'ids[]', question.id, @quiz.questions.include?(question)
+          label
+            = check_box_tag 'ids[]', question.id, @quiz.questions.include?(question)
+            = question.title
 
-  = submit_tag
+  = submit_tag nil, :class => "btn btn-primary btn-small"

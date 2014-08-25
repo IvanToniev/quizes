@@ -3,16 +3,21 @@ p#notice = notice
 p
   strong Title:
   = @question.title
+  hr
 p
   strong Description:
   = @question.description
+  hr
 p
   strong Content:
   = @question.content
+  hr
 p
   strong Answer:
   = @question.answer
+  hr
 
-= link_to 'Edit', edit_admin_question_path(@question)
-'|
-= link_to 'Back', admin_questions_path
+div.show_page_links
+  = link_to 'Edit', edit_admin_question_path(@question)
+  span
+  = link_to 'Back', admin_questions_path
