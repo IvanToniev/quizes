@@ -1,4 +1,4 @@
 Fabricator(:quiz) do
-  user_id(42)
-  title('Some quiz')
+  user_id(2)
+  title('Ruby quiz for beginners')
 end

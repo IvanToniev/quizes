@@ -4,12 +4,12 @@ class Quiz < ActiveRecord::Base
   has_many :questions, through: :question_quiz_relations
 
 
-  def move_question_up(question_id)
-    move_question(self.id, question_id, 'up')
+  def move_question_up(question)
+    move_question(self.id, question.id, 'up')
   end
 
-  def move_question_down(question_id)
-    move_question(self.id, question_id, 'down')
+  def move_question_down(question)
+    move_question(self.id, question.id, 'down')
   end
 
   private

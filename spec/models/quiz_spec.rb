@@ -3,9 +3,10 @@ require 'rails_helper'
 describe Quiz do
   let(:some_quiz) { Fabricate(:quiz) }
 
-  it 'should return user_id' do
-    expect(some_quiz[:user_id]).to be == 42
-  end
+  context "sorting" do
+    it 'should return user_id' do
+      expect(quiz[:user_id]).to be == (2)
+    end
 
   it 'should return user title' do
     expect(some_quiz.title).to be == 'Pesho'
