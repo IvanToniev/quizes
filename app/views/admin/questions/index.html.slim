@@ -16,8 +16,8 @@ table.table.table-hover.table-bordered
     - @questions.each do |question|
       tr
         td = question.title
-        td = question.description
-        td = question.content
+        td = question.description.truncate(50)
+        td = question.content.truncate(50)
         td = question.answer
         td = link_to 'Show', [:admin, question]
         td = link_to 'Edit', edit_admin_question_path(question)

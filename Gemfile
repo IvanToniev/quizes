@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'simple_form'
-gem 'rspec'
+gem 'rspec-rails', '~> 3.0.0'
 gem 'cucumber'
 gem 'ranked-model'
 gem 'better_errors', group: :development
