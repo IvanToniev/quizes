@@ -44,30 +44,18 @@ class Admin::QuizzesController < Admin::AdminApplicationController
     # QuestionQuizRelation.where(quiz_id: @quiz.id).order('show_order desc').each do |relation|
     #   @questions << Question.find(relation.question_id)
     # end
-    @question_quiz_relations = @quiz.question_quiz_relations.includes(:question).order('show_order desc')
+    @question_quiz_relations = @quiz.question_quiz_relations.includes(:question).order('show_order asc')
   end
 
   def move_up
-    question_quiz_relation = QuestionQuizRelation.find_by(
-      quiz: @quiz,
-      question_id: params[:question_id]
-    )
-
-    question_quiz_relation.update_attribute(:show_order, :up)
-    question_quiz_relation.save
+    @quiz.move_question_up(params[:question_id])
 
     # quiz.move_question_up(question)
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
 
   def move_down
-    question_quiz_relation = QuestionQuizRelation.find_by(
-      quiz: @quiz,
-      question_id: params[:question_id]
-    )
-
-    question_quiz_relation.update_attribute(:show_order, :down)
-    question_quiz_relation.save
+   @quiz.move_question_down(params[:question_id])
 
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
