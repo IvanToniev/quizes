@@ -19,3 +19,5 @@ table.table.table-bordered.table-striped
           = link_to 'Up', move_up_admin_quiz_path(question_id: question), method: :patch
           '|
           = link_to 'Down', move_down_admin_quiz_path(question_id: question), method: :patch
+          '|
+          = question_quiz_relation.show_order

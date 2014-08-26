@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140820111247) do
   create_table "question_quiz_relations", force: true do |t|
     t.integer  "question_id"
     t.integer  "quiz_id"
-    t.integer  "show_order"
+    t.integer  "show_order",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
