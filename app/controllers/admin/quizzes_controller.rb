@@ -1,6 +1,6 @@
 class Admin::QuizzesController < Admin::AdminApplicationController
   # TODO
-  before_action :set_quiz, only: [:show, :edit, :update, :destroy,
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy, :new,
                                   :add_questions, :do_add_questions, :order_questions, :move_up, :move_down]
 
   # GET /quizzes
@@ -56,6 +56,7 @@ class Admin::QuizzesController < Admin::AdminApplicationController
     question_quiz_relation.update_attribute(:show_order, :up)
     question_quiz_relation.save
 
+    # quiz.move_question_up(question)
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
 
@@ -70,7 +71,6 @@ class Admin::QuizzesController < Admin::AdminApplicationController
 
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
-
 
   # GET /quizzes/1/edit
   def edit

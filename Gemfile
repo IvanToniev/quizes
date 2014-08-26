@@ -29,8 +29,10 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'simple_form'
-gem 'rspec-rails', '~> 3.0.0'
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
 gem 'cucumber'
-gem 'ranked-model'
+gem 'ranked-model', '~> 0.3.0'
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
