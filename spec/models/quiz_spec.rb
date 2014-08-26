@@ -1,11 +1,15 @@
 require 'rails_helper'
 
 describe Quiz do
-  before do
-    @quiz = Quiz.create({:user_id => 42, :title => 'Pesho'})
-  end
+  let(:quiz) { Fabricate(:quiz) }
 
-  it 'should return user_id' do
-    expect(@quiz[:user_id]).to be == 42
+  context "sorting" do
+    it 'should return user_id' do
+      expect(quiz[:user_id]).to eq(2)
+    end
+
+    it 'move down shoud increase show_order' do
+
+    end
   end
 end

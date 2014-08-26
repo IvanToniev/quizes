@@ -48,14 +48,16 @@ class Admin::QuizzesController < Admin::AdminApplicationController
   end
 
   def move_up
-    @quiz.move_question_up(params[:question_id])
+    question = Question.find(params[:question_id])
+    @quiz.move_question_up(question)
 
     # quiz.move_question_up(question)
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
 
   def move_down
-   @quiz.move_question_down(params[:question_id])
+    question = Question.find(params[:question_id])
+    @quiz.move_question_down(question)
 
     redirect_to [:order_questions, :admin, @quiz], notice: 'Done'
   end
