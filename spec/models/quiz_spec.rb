@@ -8,7 +8,7 @@ describe Quiz do
   }
 
   it 'should return user_id' do
-    expect(some_quiz[:user_id]).to be == 2
+    expect(some_quiz[:user_id]).to be == (2)
   end
 
   it 'should return user title' do
