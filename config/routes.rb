@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
-  # get 'user/index'
-  # get 'user/quiz_welcome'
-  # get 'user/quiz'
-  # get 'user/quiz_goodbye'
-  # get 'user/quiz_statistics'
 
+  get 'users', to: 'default_user#index'
 
-  # get '/admin/quizzes/:id/add' => 'quizzes#add_question'
-  get '/admin/register' => 'admin/users#new'
+  devise_for :default_users
+  match '/users/' => 'default_user#destroy', :via => :delete
 
-  #resource :quiz, only => [:show]
+  resources :default_users
+
+  root to: "home#index"
 
   namespace :admin do
     resources :answers
-
-    # resources :question_quiz_relations
 
     resources :quizzes do
       collection do
@@ -34,16 +30,15 @@ Rails.application.routes.draw do
       end
     end
     resources :questions
-    resources :users
   end
 
-  resources :user, :only => [:index] do
+  resources :quiz, :only => [:index] do
     member do
-      get :show_quizzes
-      get :quiz_welcome
-      get :quiz
-      get :quiz_goodbye
-      get :quiz_statistics
+      get :show
+      get :welcome
+      get :index
+      get :goodbye
+      get :statistics
     end
   end
 

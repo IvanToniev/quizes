@@ -4,9 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    User.where(admin: true).first
-  end
-
-  def user_signed_in?
+    current_default_user
   end
 end

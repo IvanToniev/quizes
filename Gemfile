@@ -37,3 +37,4 @@ gem 'ranked-model', '~> 0.3.0'
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 gem 'fabrication'
+gem 'devise'
