@@ -1,22 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'users', to: 'default_user#index'
+  get 'users', to: 'user#index'
 
-  # devise_for :user
-  devise_for :default_users
+  devise_for :user
 
-  get '/default_user/edit'
-  get '/default_user/change_password'
-
-  resources :default_user, except: [:create, :new]
-
+  get '/user/edit'
+  get '/user/change_password'
 
   root to: "home#index"
 
   namespace :admin do
     resources :answers
 
-    resources :users
+    #resources :users
 
     resources :quizzes do
       collection do
