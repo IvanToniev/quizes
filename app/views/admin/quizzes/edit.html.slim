@@ -1,10 +1,14 @@
-div.question_form
-  h1 Editing quiz
+div.container
+  div.row
+    div.col-md-4
+    div.bs-docs-section.well.col-md-4
+      div.form_content
+        h1 Editing quiz
 
-  = simple_form_for [:admin, @quiz] do |form|
-    = render 'form', form: form
-    div
-      = form.button :submit, {class: 'btn btn-primary btn-large'}
+        = simple_form_for [:admin, @quiz] do |form|
+          = render 'form', form: form
+          div
+            = form.button :submit, {class: 'btn btn-primary btn-large'}
 
 div.show_page_links
   = link_to 'Show', [:admin, @quiz]

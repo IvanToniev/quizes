@@ -1,5 +1,5 @@
+# TODO < AdminApplicationController. ..
 class DefaultUserController < ApplicationController
-  # before_action :make_admin
 
   def index
     @users = DefaultUser.all
@@ -13,11 +13,28 @@ class DefaultUserController < ApplicationController
     end
   end
 
-  # def make_admin
-  #   id = params[:id]
-  #   user = DefaultUser.find(id)
-  #   user.admin = true
-  #   user.save
-  # end
+  def change_password
+    @user = DefaultUser.find(params[:user_id])
+  end
+
+  def edit
+    @user = DefaultUser.find(params[:user_id])
+  end
+
+  def show
+    redirect_to default_user_index_path
+  end
+
+  def update
+    @user = DefaultUser.find(params[:id])
+
+    respond_to do |format|
+      if @user.update(params.require(:default_user).permit!)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
 end
