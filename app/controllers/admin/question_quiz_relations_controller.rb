@@ -1,4 +1,4 @@
-class Admin::QuestionQuizRelationsController < Admin::AdminApplicationController
+class Admin::QuestionQuizRelationsController < Admin::ApplicationController
   before_action :set_question_quiz_relation, only: [:show, :edit, :update, :destroy]
 
   # GET /question_quiz_relations

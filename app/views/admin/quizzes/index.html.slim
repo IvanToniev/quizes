@@ -10,7 +10,7 @@ table.table.table-hover.table-bordered
   tbody
     - @quizzes.each do |quiz|
       tr
-        td = quiz.default_user.email
+        td = quiz.user.email
         td = quiz.title
         td = link_to 'Show', [:admin, quiz]
         td = link_to 'Edit', [:edit, :admin, quiz]

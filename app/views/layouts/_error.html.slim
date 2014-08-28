@@ -1,31 +1,6 @@
-/ FIXE: remove @user.nil? when devise is add
-- if (!@user.nil? && @user.errors.any?) || (!@question.nil? && @question.errors.any?) || (!@question_quiz_relation.nil? && @question_quiz_relation.errors.any?)
-  div.alert.alert-danger.alert-error
-    a.close href='#' data-dismiss='alert' &times;
-    #error_explanation
-      h3 Errors:
-      ul
-      - if !@user.nil? && @user.errors.any?
-        - @user.errors.full_messages.each do |message|
-          li = message
-      - elsif !@question.nil? && @question.errors.any?
-        - @question.errors.full_messages.each do |message|
-          li = message
-      - elsif !@question_quiz_relation.nil? && @question_quiz_relation.errors.any?
-        - @question_quiz_relation.errors.full_messages.each do |message|
-          li = message
-- elsif !flash[:notice].nil?
-  div.alert.alert-success
+- error_div_classes = { 'notice' => "alert-success", 'alert' => "alert-warning", 'error' => "alert-danger alert-error"}
+- flash.each do |key, message|
+  div class=(["alert", error_div_classes[key] ])
     a.close href='#' data-dismiss='alert' &times;
     p
-      = flash[:notice]
-- elsif !flash[:alert].nil?
-  div.alert.alert-warning
-    a.close href='#' data-dismiss='alert' &times;
-    p
-      = flash[:alert]
-- elsif !flash[:error].nil?
-  div.alert.alert-danger.alert-error
-    a.close href='#' data-dismiss='alert' &times;
-    p
-      = flash[:error]
+      = message

@@ -1,4 +1,4 @@
-class Admin::QuizzesController < Admin::AdminApplicationController
+class Admin::QuizzesController < Admin::ApplicationController
   # TODO
   before_action :set_quiz, only: [:show, :edit, :update, :destroy,
                                   :add_questions, :do_add_questions, :order_questions, :move_up, :move_down]
@@ -40,7 +40,7 @@ class Admin::QuizzesController < Admin::AdminApplicationController
   end
 
   def order_questions
-    # # !!!!!
+    # !!!!! n+1 relations
     # QuestionQuizRelation.where(quiz_id: @quiz.id).order('show_order desc').each do |relation|
     #   @questions << Question.find(relation.question_id)
     # end

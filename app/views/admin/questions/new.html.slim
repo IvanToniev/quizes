@@ -1,5 +1,8 @@
-div.bs-docs-section.question_form
-  div.form_content
-    h1 Question
-    = simple_form_for [:admin, @question] do |form|
-      == render 'form', form: form
+div.container
+  div.row
+    div.col-md-4
+    div.bs-docs-section.well.col-md-4
+      div.form_content
+        h1 Question
+        = simple_form_for [:admin, @question] do |form|
+          == render 'form', form: form

@@ -1,0 +1,10 @@
+div.container
+  div.row
+    div.col-md-4
+    div.bs-docs-section.well.col-md-4
+      div.form_content
+        h1 Editing user
+        = simple_form_for [:admin, @user] do |form|
+          = form.input :email
+          = form.input :admin
+          = form.button :submit, {class: 'btn btn-primary btn-large'}

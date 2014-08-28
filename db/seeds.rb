@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-admin = DefaultUser.create(email: 'admin@example.com', password: '111222333', admin: true)
-normal_user = DefaultUser.create(email: 'pesho@example.com', password: '111222333', admin: false)
-quiz = Quiz.create(default_user_id: admin.id, title: 'ruby quiz', date: Time.now)
+admin = User.create(email: 'admin@example.com', password: '111222333', admin: true)
+normal_user = User.create(email: 'pesho@example.com', password: '111222333', admin: false)
+quiz = Quiz.create(user_id: admin.id, title: 'ruby quiz', date: Time.now)
 quiz.questions << [
   Question.create(title: 'Conditions', description: 'How do you check a condition in ruby?', content: 'if, while, what', answer: 'if'),
   Question.create(title: 'RoR', description: 'How do you start a server?', content: 'rails s, start_server, server', answer: 'rails s'),

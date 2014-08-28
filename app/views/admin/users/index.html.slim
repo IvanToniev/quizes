@@ -1,0 +1,17 @@
+h1 Users
+
+table.table.table-hover.table-bordered
+  thead
+    tr
+      th Email
+      th Admin
+      th colspan='3' Actions
+  tbody
+    = form_tag(edit_user_registration_path, method: :patch) do |form|
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = check_box_tag nil, nil, checked = user.admin?
+        td = link_to 'Edit admin', [:edit_admin, :admin, user]
+        td = link_to 'Change password', [:change_password, :admin, user]
+        td = link_to "Destroy", [:admin, user], method: :delete, data: {confirm: "You sure?" }
