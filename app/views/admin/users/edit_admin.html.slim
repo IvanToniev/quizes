@@ -5,5 +5,6 @@ div.container
       div.form_content
         h1 Editing user
         = simple_form_for [:admin, @user] do |form|
-          == render 'make_admin', :form => form
+          = form.input :email
+          = form.input :admin
           = form.button :submit, {class: 'btn btn-primary btn-large'}

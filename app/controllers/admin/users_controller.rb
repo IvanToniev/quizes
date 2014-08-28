@@ -28,7 +28,7 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update(params.require(:user).permit!) # Pay the technical dept pelase...
+      if @user.update(user_params)
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
       else
         #TODO add notices
@@ -36,4 +36,10 @@ class Admin::UsersController < Admin::ApplicationController
       end
     end
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit!
+    end
 end
