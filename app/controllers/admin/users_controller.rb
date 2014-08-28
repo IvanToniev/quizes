@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::ApplicationController
       if @user.update(params.require(:user).permit!) # Pay the technical dept pelase...
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
       else
-        #TODO add notices
+        flash[:error] = 'Wrong email or password!'
         format.html { redirect_to [:change_password, :admin, @user] }
       end
     end
