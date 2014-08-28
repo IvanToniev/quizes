@@ -1,21 +1,17 @@
 Rails.application.routes.draw do
   root to: "home#index"
 
-
-  get 'users', to: 'users#index'
   devise_for :users
-
-  get '/users/edit_admin'
-  get '/users/change_password'
-  match '/users_change_password/' => 'users#change_password', :via => :patch
-  match '/users_delete/' => 'users#destroy', :via => :delete
-
-  resources :users
+  get '/admin/users/edit_admin'
+  get '/admin/users/change_password'
 
   namespace :admin do
     resources :answers
+    resources :users
 
-    #resources :users
+    get 'users', to: 'users#index'
+    match '/users_change_password/' => 'users#change_password', :via => :patch
+    match '/users_delete/' => 'users#destroy', :via => :delete
 
     resources :quizzes do
       collection do

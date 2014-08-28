@@ -12,6 +12,6 @@ table.table.table-hover.table-bordered
       tr
         td = user.email
         td = check_box_tag nil, nil, checked = user.admin?
-        td = link_to 'Edit admin', users_edit_admin_path(user_id: user.id)
-        td = link_to 'Change password', users_change_password_path(user_id: user.id)
-        td = link_to "Destroy", users_delete_path(user_id: user.id), method: :delete, data: {confirm: "You sure?" }
+        td = link_to 'Edit admin', admin_users_edit_admin_path(user_id: user.id)
+        td = link_to 'Change password', admin_users_change_password_path(user_id: user.id)
+        td = link_to "Destroy", admin_users_delete_path(user_id: user.id), method: :delete, data: {confirm: "You sure?" }
