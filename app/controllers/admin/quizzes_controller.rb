@@ -1,4 +1,4 @@
-class Admin::QuizzesController < Admin::AdminApplicationController
+class Admin::QuizzesController < Admin::ApplicationController
   # TODO
   before_action :set_quiz, only: [:show, :edit, :update, :destroy,
                                   :add_questions, :do_add_questions, :order_questions, :move_up, :move_down]

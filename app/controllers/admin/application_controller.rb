@@ -1,4 +1,4 @@
-class Admin::AdminApplicationController < ApplicationController
+class Admin::ApplicationController < ApplicationController
   before_action :verify_only_admins
 
   private

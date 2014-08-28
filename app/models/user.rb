@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :quizzes, dependent: :destroy
+
+  scope :admin, ->(){ where(admin: true) }
+
 end

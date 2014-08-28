@@ -1,12 +1,11 @@
-# TODO < AdminApplicationController. ..
-class Admin::UsersController < Admin::AdminApplicationController
+class Admin::UsersController < Admin::ApplicationController
 
   def index
     @users = User.all
   end
 
   def destroy
-    user = User.find(params[:user_id])
+    user = User.find(params[:id])
 
     if user.destroy
       redirect_to admin_users_path, notice: 'User deleted!'
@@ -14,11 +13,11 @@ class Admin::UsersController < Admin::AdminApplicationController
   end
 
   def change_password
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
   end
 
   def edit_admin
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
   end
 
   def show
@@ -29,10 +28,11 @@ class Admin::UsersController < Admin::AdminApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update(params.require(:user).permit!)
+      if @user.update(params.require(:user).permit!) # Pay the technical dept pelase...
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
       else
-        format.html { render :edit }
+        #TODO add notices
+        format.html { redirect_to [:change_password, :admin, @user] }
       end
     end
   end

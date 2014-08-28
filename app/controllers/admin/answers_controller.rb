@@ -1,4 +1,4 @@
-class Admin::AnswersController < Admin::AdminApplicationController
+class Admin::AnswersController < Admin::ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
   # GET /answers
