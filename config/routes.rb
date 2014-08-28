@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: "home#index"
+  get 'questions/show'
+
+  root to: "quiz#index"
 
   devise_for :users, controllers: { sessions: "devise/users/sessions" }
 
@@ -37,12 +39,16 @@ Rails.application.routes.draw do
   end
 
   resources :quiz, :only => [:index] do
+
     member do
       get :show
       get :welcome
-      get :index
       get :goodbye
       get :statistics
+      resources :questions do
+        get :solve
+      end
     end
+
   end
 end
