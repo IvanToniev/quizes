@@ -1,5 +1,5 @@
 # TODO < AdminApplicationController. ..
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def index
     @users = User.all
@@ -17,24 +17,23 @@ class UserController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def edit
+  def edit_admin
     @user = User.find(params[:user_id])
   end
 
   def show
-    redirect_to user_index_path
+    redirect_to users_path
   end
 
   def update
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update(params.require(:default_user).permit!)
+      if @user.update(params.require(:user).permit!)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
       else
         format.html { render :edit }
       end
     end
   end
-
 end
