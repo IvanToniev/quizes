@@ -47,6 +47,8 @@ Rails.application.routes.draw do
       get :statistics
       resources :questions do
         get :solve
+        # TODO: move if it is not necessary to be nested
+        resources :answers
       end
     end
 
