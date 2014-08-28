@@ -1,3 +1,23 @@
 // Place all the styles related to the DefaultUser controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user_admin, .user_remember_me {
+  margin-top: 5px;
+  input[type="checkbox"] {
+    margin-left: 0;
+  }
+}
+
+.form_content {
+  width: 50%;
+
+  input[type="submit"] {
+    margin-left: 0;
+  }
+
+  a {
+    margin-top: 5px;
+    display: inline-block;
+  }
+}
+

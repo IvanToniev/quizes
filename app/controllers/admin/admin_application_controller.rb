@@ -3,6 +3,8 @@ class Admin::AdminApplicationController < ApplicationController
 
   private
   def verify_only_admins
-    # TODO
+    if current_user.nil? || !current_user.admin?
+      redirect_to root_path
+    end
   end
 end
