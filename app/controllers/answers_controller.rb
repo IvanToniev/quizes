@@ -18,10 +18,11 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
 
     @answer.success = @answer.check_answer(@answer.content)
+    quiz = Quiz.find(@answer.quiz_id)
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to question_path(@answer.quiz_id), notice: 'Answer was successfully submited.' }
+        format.html { redirect_to quiz, notice: 'Answer was successfully submited.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

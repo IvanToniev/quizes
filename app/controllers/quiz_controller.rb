@@ -1,15 +1,15 @@
 class QuizController < ApplicationController
   def index
     @quizzes = Quiz.all
-    @user = current_user
   end
 
   def show
+    @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions
   end
 
   def welcome
     @quiz = Quiz.find(params[:id])
-    @user = current_user
   end
 
   def goodbye

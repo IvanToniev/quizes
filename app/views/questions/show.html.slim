@@ -1,19 +1,23 @@
-h1 Questions
+= simple_form_for [@quiz, @question, @answer] do |form|
+  .well
+    h3 = @question.title
 
-br
+  -if @question.description
+    div.form-group
+      div.col-md-4
+        div Description
+        div = @question.description
 
-table.table.table-hover.table-bordered
-  thead
-    tr
-      th Title
-      th Description
-      th Content
-      th
+  div.form-group
+    div.col-md-4
+      div Content
+      div = @question.content
 
-  tbody
-    - @questions.each do |question|
-      tr
-        td = question.title
-        td = question.description.truncate(50)
-        td = question.content.truncate(50)
-        td = link_to 'Answer', question_solve_path(question_id: question.id, user_id: @user_id)
+  div.form-group
+    div.col-md-4
+      = label_tag 'content'
+      = text_area_tag 'content'
+
+  div.form-group
+    div.col-sm-offset-2.col-sm-10
+      = submit_tag nil, :class => "btn btn-primary btn-small"

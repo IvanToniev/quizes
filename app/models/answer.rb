@@ -4,7 +4,8 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   def check_answer answer
-    Question.find(self.question_id).answer == answer ? true : false
+    question = Question.find(self.question_id)
+    question.answer == answer
   end
 
 end
