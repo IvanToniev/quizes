@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :answers
+    #resources :answers
     resources :users do
 
       member do
