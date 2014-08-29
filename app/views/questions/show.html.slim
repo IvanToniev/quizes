@@ -16,4 +16,4 @@ table.table.table-hover.table-bordered
         td = question.title
         td = question.description.truncate(50)
         td = question.content.truncate(50)
-        td = link_to 'Start', question_solve_path(question_id: question.id)
+        td = link_to 'Answer', question_solve_path(question_id: question.id, user_id: @user_id)

@@ -1,0 +1,31 @@
+h1 Answers
+
+table.table.table-hover.table-bordered
+  thead
+    tr
+      th Quiz
+      th User
+      th Question
+      th Content
+      th Success
+      -if current_user.admin?
+        th
+        th
+        th
+
+  tbody
+    - @answers.each do |answer|
+      tr
+        td = answer.quiz.title
+        td = answer.user.email
+        td = answer.question.title
+        td = answer.content
+        td = answer.success
+        -if current_user.admin?
+          td = link_to 'Show', answers_path
+          td = link_to 'Edit', edit_answer_path(answer)
+          td = link_to 'Destroy', answers_path, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Answer', new_answer_path

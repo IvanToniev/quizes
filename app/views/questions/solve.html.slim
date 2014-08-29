@@ -1,27 +1,30 @@
-h1 TODO
-/ =form_tag ''
-/   div class="form-group"
-/     div.col-md-2
-/       h3
-/         =@question.title
+=form_tag answers_path do |form|
+  div class="form-group"
+    div.col-md-2
+      h3
+        =@question.title
 
-/   div class="form-group"
-/     -if @question.description
-/       div class="col-md-4"
-/         div Description
-/         div
-/           =@question.description
+  div class="form-group"
+    -if @question.description
+      div class="col-md-4"
+        div Description
+        div
+          =@question.description
 
-/   div class="form-group"
-/     div class="col-md-4"
-/       div Content
-/       div
-/         =@question.content
+  div class="form-group"
+    div class="col-md-4"
+      div Content
+      div
+        =@question.content
 
-/   div class="form-group"
-/     div class="col-md-4"
-/       input type="password" class="form-control" id="inputPassword3" placeholder="Password"
+  div class="form-group"
+    div class="col-md-4"
+      =label_tag 'content'
+      =text_area_tag 'content'
+      =hidden_field_tag 'question_id', @question.id
+      =hidden_field_tag 'quiz_id', @quiz_id
+      =hidden_field_tag 'user_id', @user_id
 
-/   div class="form-group"
-/     div class="col-sm-offset-2 col-sm-10"
-/       button type="submit" class="btn btn-default" Submit Answer
+  div class="form-group"
+    div class="col-sm-offset-2 col-sm-10"
+      = submit_tag nil, :class => "btn btn-primary btn-small"

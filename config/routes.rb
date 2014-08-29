@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :answers
     resources :users do
 
       member do
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
     resources :questions
   end
 
+  resources :answers
   resources :quiz, :only => [:index] do
 
     member do
@@ -47,8 +47,6 @@ Rails.application.routes.draw do
       get :statistics
       resources :questions do
         get :solve
-        # TODO: move if it is not necessary to be nested
-        resources :answers
       end
     end
 
