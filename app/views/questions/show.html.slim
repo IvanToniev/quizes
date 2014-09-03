@@ -1,23 +1,31 @@
-= simple_form_for [@quiz, @question, @answer] do |form|
-  .well
-    h3 = @question.title
+div.well.bs-component
+  fieldset
+    = simple_form_for [@quiz, @question, @answer], html: { class: 'form-horizontal' } do |form|
+      legend #{@question.title}
+      -if @question.description
+        div.form-group
+          div.col-lg-10
+            div.panel.panel-success
+              div.panel-heading
+                h3.panel-title Description
+              div.panel-body #{@question.description}
 
-  -if @question.description
-    div.form-group
-      div.col-md-4
-        div Description
-        div = @question.description
+      div.form-group
+        div.col-lg-10
+          div.panel.panel-success
+              div.panel-heading
+                h3.panel-title Content
+              div.panel-body #{@question.content}
 
-  div.form-group
-    div.col-md-4
-      div Content
-      div = @question.content
+      div.form-group
+        div.col-lg-10
+          div.panel.panel-warning
+              div.panel-heading
+                h3.panel-title Your answer
+              div.panel-body
+                = text_area_tag 'answer', nil, class: 'form-control'
+          span.help-block Hit
 
-  div.form-group
-    div.col-md-4
-      = label_tag 'content'
-      = text_area_tag 'content'
-
-  div.form-group
-    div.col-sm-offset-2.col-sm-10
-      = submit_tag nil, :class => "btn btn-primary btn-small"
+      div.form-group
+        div.col-lg-offset-2.col-lg-10
+          = submit_tag nil, :class => 'btn btn-primary'

@@ -187,7 +187,7 @@ DEPENDENCIES
   jquery-rails
   quiet_assets
   rails (= 4.1.5)
-  ranked-model (~> 0.3.0)
+  ranked-model
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

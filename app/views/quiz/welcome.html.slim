@@ -1,5 +1,3 @@
-div.quiz_welcome
-  div Welcome to the quiz:
-  br
-  = @quiz.title
-  = link_to 'Begin', @quiz, {class: 'btn btn-large btn-primary begin_quiz'}
+div.quiz_welcome.jumbotron
+  h2 Welcome to #{@quiz.title}
+  = link_to 'Begin', @quiz, {class: 'btn btn-primary btn-lg quiz-begin-button'}
