@@ -40,10 +40,6 @@ class Admin::QuizzesController < Admin::ApplicationController
   end
 
   def order_questions
-    # !!!!! n+1 relations
-    # QuestionQuizRelation.where(quiz_id: @quiz.id).order('show_order desc').each do |relation|
-    #   @questions << Question.find(relation.question_id)
-    # end
     @question_quiz_relations = @quiz.question_quiz_relations.includes(:question).order('show_order asc')
   end
 

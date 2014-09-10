@@ -33,7 +33,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
 gem 'cucumber'
-gem 'ranked-model', '~> 0.3.0'
+gem 'ranked-model'
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 gem 'fabrication'

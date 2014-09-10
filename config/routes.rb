@@ -1,27 +1,17 @@
 Rails.application.routes.draw do
-  get 'questions/show'
-
   root to: "quiz#index"
 
   devise_for :users, controllers: { sessions: "devise/users/sessions" }
 
-
   namespace :admin do
-    resources :answers
     resources :users do
-
       member do
         get :edit_admin
         get :change_password
       end
     end
 
-
-
     resources :quizzes do
-      collection do
-      end
-
       member do
         get :add_questions
         patch :do_add_questions
@@ -35,22 +25,21 @@ Rails.application.routes.draw do
         patch :move_down
       end
     end
-    resources :questions
-  end
 
-  resources :quiz, :only => [:index] do
+    resources :questions
+  end # admin
+
+  resources :quiz, :only => [:index, :show] do
+    resources :questions, only: [:show] do
+      resources :answers
+      get :solve
+    end
 
     member do
-      get :show
       get :welcome
       get :goodbye
       get :statistics
-      resources :questions do
-        get :solve
-        # TODO: move if it is not necessary to be nested
-        resources :answers
-      end
     end
+  end # quiz forntend
 
-  end
 end

@@ -1,19 +1,31 @@
-h1 Questions
+div.well.bs-component
+  fieldset
+    = simple_form_for [@quiz, @question, @answer], html: { class: 'form-horizontal' } do |form|
+      legend #{@question.title}
+      -if @question.description
+        div.form-group
+          div.col-lg-10
+            div.panel.panel-success
+              div.panel-heading
+                h3.panel-title Description
+              div.panel-body #{@question.description}
 
-br
+      div.form-group
+        div.col-lg-10
+          div.panel.panel-success
+              div.panel-heading
+                h3.panel-title Content
+              div.panel-body #{@question.content}
 
-table.table.table-hover.table-bordered
-  thead
-    tr
-      th Title
-      th Description
-      th Content
-      th
+      div.form-group
+        div.col-lg-10
+          div.panel.panel-warning
+              div.panel-heading
+                h3.panel-title Your answer
+              div.panel-body
+                = text_area_tag 'answer', nil, class: 'form-control'
+          span.help-block Hit
 
-  tbody
-    - @questions.each do |question|
-      tr
-        td = question.title
-        td = question.description.truncate(50)
-        td = question.content.truncate(50)
-        td = link_to 'Start', question_solve_path(question_id: question.id)
+      div.form-group
+        div.col-lg-offset-2.col-lg-10
+          = submit_tag nil, :class => 'btn btn-primary'

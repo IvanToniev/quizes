@@ -1,15 +1,14 @@
 class QuestionsController < ApplicationController
-  def show
-    @questions = quiz.questions
-  end
 
-  def solve
-    @question = Question.find(params[:question_id])
+  before_action :set_quiz
+
+  def show
+    @question = Question.find(params[:id])
     @answer = Answer.new
   end
 
   private
-  def quiz
-    Quiz.find(params[:id])
+  def set_quiz
+    @quiz = Quiz.find(params[:quiz_id])
   end
 end

@@ -1,6 +1,8 @@
 - error_div_classes = { 'notice' => "alert-success", 'alert' => "alert-warning", 'error' => "alert-danger alert-error"}
 - flash.each do |key, message|
-  div class=(["alert", error_div_classes[key] ])
-    a.close href='#' data-dismiss='alert' &times;
-    p
-      = message
+  div.container
+    div class=(["alert", error_div_classes[key] ])
+      a.close href='#' data-dismiss='alert' &times;
+      ul
+        li
+          = message
