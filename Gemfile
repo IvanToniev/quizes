@@ -38,3 +38,4 @@ gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 gem 'fabrication'
 gem 'devise'
+gem 'quiet_assets', group: :development
